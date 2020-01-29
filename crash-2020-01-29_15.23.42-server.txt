@@ -1,0 +1,92 @@
+---- Minecraft Crash Report ----
+// Surprise! Haha. Well, this is awkward.
+
+Time: 1/29/20 3:23 PM
+Description: Exception in server tick loop
+
+java.lang.AbstractMethodError: net.minecraft.block.trees.Tree.func_225546_b_(Ljava/util/Random;Z)Lnet/minecraft/world/gen/feature/ConfiguredFeature;
+	at net.minecraft.block.trees.Tree.func_225545_a_(SourceFile:23) ~[?:?] {re:classloading}
+	at net.minecraft.block.trees.BigTree.func_225545_a_(SourceFile:27) ~[?:?] {re:classloading}
+	at net.minecraft.block.SaplingBlock.func_226942_a_(SaplingBlock.java:44) ~[?:?] {re:classloading}
+	at net.minecraft.block.SaplingBlock.func_225535_a_(SaplingBlock.java:58) ~[?:?] {re:classloading}
+	at net.minecraft.item.BoneMealItem.applyBonemeal(BoneMealItem.java:67) ~[?:?] {re:classloading}
+	at net.minecraft.item.BoneMealItem.func_195939_a(BoneMealItem.java:30) ~[?:?] {re:classloading}
+	at net.minecraftforge.common.ForgeHooks.onPlaceItemIntoWorld(ForgeHooks.java:609) ~[?:?] {re:classloading}
+	at net.minecraft.item.ItemStack.func_196084_a(ItemStack.java:167) ~[?:?] {re:classloading}
+	at net.minecraft.server.management.PlayerInteractionManager.func_219441_a(PlayerInteractionManager.java:348) ~[?:?] {re:classloading}
+	at net.minecraft.network.play.ServerPlayNetHandler.func_184337_a(ServerPlayNetHandler.java:853) ~[?:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.network.play.client.CPlayerTryUseItemOnBlockPacket.func_148833_a(SourceFile:36) ~[?:?] {re:classloading}
+	at net.minecraft.network.play.client.CPlayerTryUseItemOnBlockPacket.func_148833_a(SourceFile:10) ~[?:?] {re:classloading}
+	at net.minecraft.network.PacketThreadUtil.func_225383_a(SourceFile:21) ~[?:?] {re:classloading}
+	at net.minecraft.network.PacketThreadUtil$$Lambda$6599/861596951.run(Unknown Source) ~[?:?] {}
+	at net.minecraft.util.concurrent.TickDelayedTask.run(SourceFile:18) ~[?:?] {re:classloading}
+	at net.minecraft.util.concurrent.ThreadTaskExecutor.func_213166_h(SourceFile:144) ~[?:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.util.concurrent.RecursiveEventLoop.func_213166_h(SourceFile:23) ~[?:?] {re:classloading}
+	at net.minecraft.server.MinecraftServer.func_213166_h(MinecraftServer.java:729) ~[?:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.func_213166_h(MinecraftServer.java:141) ~[?:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.util.concurrent.ThreadTaskExecutor.func_213168_p(SourceFile:118) ~[?:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.func_213205_aW(MinecraftServer.java:712) ~[?:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.func_213168_p(MinecraftServer.java:706) ~[?:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.util.concurrent.ThreadTaskExecutor.func_213160_bf(SourceFile:103) ~[?:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.func_213202_o(MinecraftServer.java:691) ~[?:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:639) [?:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_51] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.15.2
+	Minecraft Version ID: 1.15.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_51, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 1200106464 bytes (1144 MB) / 2147483648 bytes (2048 MB) up to 2147483648 bytes (2048 MB)
+	CPUs: 8
+	JVM Flags: 9 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -Xss1M -Xmx2G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M
+	ModLauncher: 5.0.0-milestone.4+67+b1a340b
+	ModLauncher launch target: fmlclient
+	ModLauncher naming: srg
+	ModLauncher services: 
+		/eventbus-2.0.0-milestone.1-service.jar eventbus PLUGINSERVICE 
+		/forge-1.15.2-31.0.1.jar object_holder_definalize PLUGINSERVICE 
+		/forge-1.15.2-31.0.1.jar runtime_enum_extender PLUGINSERVICE 
+		/accesstransformers-2.0.0-milestone.1-shadowed.jar accesstransformer PLUGINSERVICE 
+		/forge-1.15.2-31.0.1.jar capability_inject_definalize PLUGINSERVICE 
+		/forge-1.15.2-31.0.1.jar runtimedistcleaner PLUGINSERVICE 
+		/forge-1.15.2-31.0.1.jar fml TRANSFORMATIONSERVICE 
+	FML: 31.0
+	Forge: net.minecraftforge:31.0.1
+	FML Language Providers: 
+		javafml@31.0
+		minecraft@1
+	Mod List: 
+		forge-1.15.2-31.0.1-client.jar Minecraft {minecraft@1.15.2 DONE}
+		elevatorid-1.15.2-1.5.5.jar Elevator Mod {elevatorid@1.15.2-1.5.5 DONE}
+		DungeonCrawl-1.15.1-1.6.0.jar Dungeon Crawl {dungeoncrawl@1.6.0 DONE}
+		BiomesOPlenty-1.15.2-10.0.0.300-universal.jar Biomes O' Plenty {biomesoplenty@1.15.2-10.0.0.299 DONE}
+		craftingstation-3.0.1.jar Crafting Station {craftingstation@3.0.1 DONE}
+		Apotheosis-1.15.1-3.0.3.jar Apotheosis {apotheosis@3.0.3 DONE}
+		MekanismGenerators-1.15.2-9.9.6.397.jar Mekanism: Generators {mekanismgenerators@9.9.6 DONE}
+		jei-1.15.2-6.0.0.2.jar Just Enough Items {jei@6.0.0.2 DONE}
+		forbidden_arcanus-1.15.1-1.0-beta-3.jar Forbidden & Arcanus {forbidden_arcanus@1.15.1-1.0-beta-1 DONE}
+		metalbarrels-2.1.jar Metal Barrels {metalbarrels@2.1 DONE}
+		Ferroustry-Mod-1.15.1.jar Ferroustry {ferroustry@2.0 DONE}
+		XL-Food-Mod-1.15.2-2.2.2.jar XL Food Mod {xlfoodmod@2.2.2 DONE}
+		extradisks-1.15.1-1.2.jar Extra Disks {extradisks@1.15.1-1.2 DONE}
+		Spike-Traps-Mod-1.15.1.jar Spike Traps {spiketraps@2.0 DONE}
+		Mekanism-1.15.2-9.9.6.397.jar Mekanism {mekanism@9.9.6 DONE}
+		car-1.15.2-2.0.0.jar Ultimate Car Mod {car@1.15.2-2.0.0 DONE}
+		forge-1.15.2-31.0.1-universal.jar Forge {forge@31.0.1 DONE}
+		FastLeafDecay-v20.jar FastLeafDecay {fastleafdecay@v20 DONE}
+		refinedstorage-1.8.1+8.jar Refined Storage {refinedstorage@1.8.1+8 DONE}
+		refinedstorageaddons-0.6.jar Refined Storage Addons {refinedstorageaddons@0.6 DONE}
+		OresAboveDiamonds+1.15+v2.1.jar Ores Above Diamonds {oresabovediamonds@2.0 DONE}
+		Placebo-1.15.1-3.0.1.jar Placebo {placebo@3.0.1 DONE}
+		xptome-1.15.1-v1.1.4.jar XP Tome {xpbook@v1.1.4 DONE}
+	Player Count: 1 / 8; [ServerPlayerEntity['Gunner12321'/71, l='Modded 1.15.2', x=-190.20, y=70.00, z=-225.46]]
+	Data Packs: vanilla, mod:apotheosis (incompatible), mod:biomesoplenty, mod:car, mod:craftingstation (incompatible), mod:dungeoncrawl (incompatible), mod:elevatorid, mod:extradisks, mod:fastleafdecay, mod:ferroustry (incompatible), mod:forbidden_arcanus (incompatible), mod:forge (incompatible), mod:jei (incompatible), mod:mekanism, mod:mekanismgenerators, mod:metalbarrels (incompatible), mod:oresabovediamonds (incompatible), mod:placebo (incompatible), mod:refinedstorage (incompatible), mod:refinedstorageaddons (incompatible), mod:spiketraps, mod:xlfoodmod, mod:xpbook (incompatible)
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'forge'
